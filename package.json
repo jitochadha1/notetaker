@@ -5,11 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Develop/server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "npm": "^7.6.1",
+    "uniqid": "^5.3.0"
   }
 }

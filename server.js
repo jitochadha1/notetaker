@@ -36,7 +36,9 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/notes.html'));
 });
 
+const PORT = process.env.PORT || 3001;
+
 // Start server
-app.listen(80, () => {
-    console.log('Listening to port 80')
+app.listen(PORT, () => {
+    console.log(`Listening to port ${PORT}`);
 });

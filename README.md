@@ -1,5 +1,5 @@
 ![alt text](https://img.icons8.com/material-sharp/2x/software-license.png)
-# Professional README Generator
+# Notetaker Application
 
 https://github.com/jitochadha1/notetaker
 ## Description

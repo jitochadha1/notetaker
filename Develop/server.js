@@ -7,19 +7,27 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.json());
 
-app.get('/api/notes', (req, res) => {
+const getDB = (callback) => {
     fs.readFile('./db/db.json', 'utf-8', (err, file) => {
-        res.json(JSON.parse(file));
+        callback(JSON.parse(file));
     });
+};
+
+app.get('/api/notes', (req, res) => {
+    getDB(db => res.json(db));
 });
+
 app.post('/api/notes', (req, res) => {
     const id = uniqid();
     const { text, title } = req.body;
 
-    console.log(id, text, title)
-
-    fs.readFile('db/db.json', 'utf-8', (err, file) => {
-
+    getDB(db => {
+        const note = { id, text, title };
+        db.push(note);
+        const notes = JSON.stringify(db);
+        fs.writeFile('./db/db.json', notes, (err) => {
+            res.send('ok');
+        });
     });
 });
 
